@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tissue_land/screens/login_screen.dart';
+import 'package:tissue_land/widgets/title_text.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -28,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen>
     // 3초 후에 다음 화면으로 이동
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
       );
     });
   }
@@ -46,27 +48,10 @@ class _SplashScreenState extends State<SplashScreen>
       body: Center(
         child: FadeTransition(
           opacity: _fadeAnimation,
-          child: Text(
-            '티슈랜드',
-            style: const TextStyle(
-              fontFamily: 'GumiRomance',
-              fontSize: 40,
-              color: Colors.white,
-            ),
-          ),
+          child: const TitleText(color: Colors.white)
         ),
       ),
     );
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(child: Text('홈 화면')),
-    );
-  }
-}

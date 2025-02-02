@@ -12,7 +12,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'Gumi Romance'),  // 테마에 폰트 설정
       home: const SplashScreen(),
     );
   }
 }
+
