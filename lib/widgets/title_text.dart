@@ -6,7 +6,7 @@ class TitleText extends StatelessWidget {
 
   const TitleText({
     Key? key,
-    this.fontSize = 60, // 기본 크기 40
+    this.fontSize = 50, // 기본 크기 40
     this.color = const Color(0xFF54C392), // 기본 색상 (초록색)
   }) : super(key: key);
 
