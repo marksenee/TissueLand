@@ -23,7 +23,7 @@ class CustomHeader extends StatelessWidget implements PreferredSizeWidget {
       title: Text(
         title,
         style: TextStyle(
-          fontFamily: 'Pretandart-extrabold',
+          fontFamily: 'Pretandart-Medium',
           fontSize: 22,
           fontWeight: FontWeight.bold,
           color: textColor,
