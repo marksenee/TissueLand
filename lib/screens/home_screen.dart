@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tissue_land/screens/product_detail_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -100,28 +101,39 @@ class _HomeScreenState extends State<HomeScreen> {
               return const Center(child: CircularProgressIndicator());
             }
 
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  width: screenWidth / 2.3,
-                  height: screenWidth / 2,
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(10),
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProductDetailScreen(productId: items[index]),
                   ),
-                  child: const Center(
-                    child: Icon(Icons.image, color: Colors.white, size: 40),
+                );
+              },
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: screenWidth / 2.3,
+                    height: screenWidth / 2,
+                    decoration: BoxDecoration(
+                      color: Colors.grey,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Center(
+                      child: Icon(Icons.image, color: Colors.white, size: 40),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 10),
-                Text('상품명 ${items[index]}', style: const TextStyle(fontSize: 15)),
-                const Text(
-                  '18,000원',
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
-                ),
-              ],
+                  const SizedBox(height: 10),
+                  Text('상품명 ${items[index]}', style: const TextStyle(fontSize: 15)),
+                  const Text(
+                    '18,000원',
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                  ),
+                ],
+              ),
             );
+
           },
         ),
       ),
