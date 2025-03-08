@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:tissue_land/screens/cart_screen.dart'; // 장바구니 페이지 추가
 
 class ProductDetailScreen extends StatefulWidget {
   final int productId;
@@ -38,7 +39,13 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             padding: const EdgeInsets.only(right: 10),
             child: IconButton(
               icon: const Icon(Icons.shopping_cart),
-              onPressed: () {},
+              onPressed: () {
+                // 🛒 장바구니 아이콘 클릭 시 이동
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const CartScreen()),
+                );
+              },
               color: Colors.black,
             ),
           ),
@@ -127,7 +134,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           Container(
             width: 430,
             height: 130,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.white,
               border: Border(
                 top: BorderSide(color: Color(0xFFF1F1F1), width: 1),
@@ -142,7 +149,11 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   height: 50,
                   child: OutlinedButton(
                     onPressed: () {
-                      // 장바구니 담기 기능 추가
+                      // 🛒 장바구니 담기 버튼 클릭 시 이동
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const CartScreen()),
+                      );
                     },
                     style: OutlinedButton.styleFrom(
                       side: const BorderSide(color: Color(0xFF54C392)), // 테두리 색상
@@ -159,7 +170,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   height: 50,
                   child: ElevatedButton(
                     onPressed: () {
-                      // 구매하기 기능 추가
+                      // 🛍️ 구매하기 기능 추가 가능
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF54C392), // 배경색
@@ -173,8 +184,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           ),
         ],
       ),
-
-
     );
   }
 }

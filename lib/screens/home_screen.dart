@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tissue_land/screens/cart_screen.dart';
 import 'package:tissue_land/screens/product_detail_page.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -41,12 +42,20 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
+  void _onItemTapped(int index) {
+    if (index == 0) {
+      // 장바구니 클릭 시 이동 (홈/마이페이지 선택 변경 없음)
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const CartScreen()),
+      );
+    } else {
+      setState(() {
+        _selectedIndex = index;
+      });
+    }
+  }
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
