@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:tissue_land/screens/cart_screen.dart'; // 장바구니 페이지 추가
+import 'package:tissue_land/screens/cart_screen.dart';
+import 'package:tissue_land/screens/purchase_screen.dart'; // 장바구니 페이지 추가
 
 class ProductDetailScreen extends StatefulWidget {
   final int productId;
@@ -250,8 +251,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     width: double.infinity,
                                     child: ElevatedButton(
                                       onPressed: () {
-                                        Navigator.pop(context); // 바텀시트 닫기
-                                      },
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => const PurchaseScreen()),
+                                        );                                      },
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: const Color(0xFF54C392),
                                       ),
