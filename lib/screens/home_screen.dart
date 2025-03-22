@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tissue_land/screens/cart_screen.dart';
+import 'package:tissue_land/screens/mypage_screen.dart';
 import 'package:tissue_land/screens/product_detail_page.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -43,17 +44,23 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
 
+  // 화면을 전환하는 함수
   void _onItemTapped(int index) {
     if (index == 0) {
-      // 장바구니 클릭 시 이동 (홈/마이페이지 선택 변경 없음)
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const CartScreen()),
+        MaterialPageRoute(builder: (context) => CartScreen()),
       );
-    } else {
+    } else if (index == 1) {
+      // 홈 클릭 시 홈 화면으로 이동하지 않음 (현재 화면 유지)
       setState(() {
-        _selectedIndex = index;
+        _selectedIndex = 1;
       });
+    } else if (index == 2) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => MypageScreen()),
+      );
     }
   }
 

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tissue_land/screens/order_complete_screen.dart';
 
 class PurchaseScreen extends StatefulWidget {
-  const PurchaseScreen({super.key});
+  final String productImage; // productImage 변수
+
+  const PurchaseScreen({super.key, required this.productImage});
 
   @override
   State<PurchaseScreen> createState() => _PurchaseScreenState();
@@ -225,7 +228,16 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: _orderConfirmed ? () {} : null,
+                  onPressed: _orderConfirmed ? () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => OrderCompleteScreen(
+                          productImage: widget.productImage, // 수정된 부분
+                        ),
+                      ),
+                    );
+                  } : null,
                   style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF54C392)),
                   child: const Text('결제하기', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18)),
                 ),

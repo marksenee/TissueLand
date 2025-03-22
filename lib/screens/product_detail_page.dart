@@ -61,7 +61,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const CartScreen()),
+                      MaterialPageRoute(builder: (context) =>  CartScreen()),
                     );
                   },
                   color: Colors.black,
@@ -253,7 +253,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                       onPressed: () {
                                         Navigator.push(
                                           context,
-                                          MaterialPageRoute(builder: (context) => const PurchaseScreen()),
+                                          MaterialPageRoute(builder: (context) => PurchaseScreen(
+                                            productImage: productImages[0], // 첫 번째 상품 이미지 전달
+                                          ),),
                                         );                                      },
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: const Color(0xFF54C392),
